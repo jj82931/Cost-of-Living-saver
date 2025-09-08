@@ -1,4 +1,4 @@
-# SECURITY.md — English Translation
+# SECURITY.md
 
 Use this document as a checklist at every stage of development and deployment. It defines the project’s data privacy and security principles.
 
