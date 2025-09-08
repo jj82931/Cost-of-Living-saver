@@ -1,40 +1,49 @@
-# SECURITY.md
+# SECURITY.md — English Translation
 
-본 프로젝트의 개인정보 및 보안 원칙이다. 개발과 배포 전 단계에서 이 문서를 체크리스트로 사용한다.
+Use this document as a checklist at every stage of development and deployment. It defines the project’s data privacy and security principles.
 
-## 데이터 분류
-- 원본 파일: 사용자가 업로드한 PDF, 이미지, CSV. 저장 금지. 처리 후 즉시 파기
-- 추출 데이터: 금액, 요금, 사용량 등 비식별 필드. 저장 가능
-- 파생 데이터: 시뮬레이션 결과, 요약 문구. 저장 가능
+## Data classification
 
-## 수집과 보관
-- 기본 정책: 원본은 메모리 또는 임시 저장소에서만 처리하고 완료 즉시 삭제
-- 디버그 모드가 필요한 경우에만 24시간 미만 보관 옵션을 제공. 기본값은 0시간
-- 파일 업로드 후 해시를 생성해 중복 업로드를 방지. 해시는 비식별화된 형태로 저장
+* Original files: PDFs, images, and CSVs uploaded by users. Do not store. Destroy immediately after processing.
+* Extracted data: de-identified fields such as amounts, rates, and usage. May be stored.
+* Derived data: simulation results and summary text. May be stored.
 
-## 처리 원칙
-- OCR, 정보추출, 분류는 클라이언트 우선. 외부 LLM에는 추출 필드만 보낸다
-- LLM 프롬프트에 PII와 원본 전문을 포함하지 않는다
-- 출력은 토큰 상한과 금칙어 필터를 거친다
+## Collection and retention
 
-## 저장소 보안
-- Supabase RLS 활성화. 테이블별 정책으로 user_id 일치 행만 접근 허용
-- 민감 데이터 칼럼은 필요 시 암호화. 백업은 암호화 저장
+* Default policy: process originals only in memory or temporary storage and delete as soon as processing completes.
+* Retention is allowed only when debug mode is explicitly enabled, and for less than 24 hours. Default is 0 hours.
+* After upload, generate a file hash to prevent duplicate uploads. Store the hash in a de-identified form.
 
-## 접근 제어
-- 권한 등급: anonymous, user. 관리자 롤은 운영 도구에서만 사용
-- 세션 토큰은 httpOnly, secure, sameSite=strict
+## Processing principles
 
-## 로깅과 모니터링
-- 로그에 PII를 기록하지 않는다. 금액과 요금 같은 비식별 값만 남긴다
-- 에러는 코드와 스택만 기록. 사용자 메시지는 일반화된 문구를 사용
+* OCR, information extraction, and classification are client-first. Send only extracted fields to external LLMs.
+* Do not include PII or full original text in LLM prompts.
+* Outputs must pass a token limit and a blocked-terms filter.
 
-## 비밀 정보 관리
-- API 키는 서버 환경변수로만 보관. 클라이언트에 주입 금지
-- 키 로테이션 주기: 30일. 유출 의심 시 즉시 폐기
+## Storage security
 
-## 취약점 신고
-- 보안 이슈는 jj49408293@gmail.com 으로 신고. 72시간 내 1차 응답을 목표로 한다
+* Enable Supabase Row Level Security. Allow access only to rows where user\_id matches.
+* Encrypt sensitive columns when needed. Store backups encrypted.
 
-## 준수 면책
-- 본 도구는 정보 제공용이다. 법률 자문이나 금융 자문이 아니다. 결과 사용에 따른 책임은 사용자에게 있다
+## Access control
+
+* Roles: anonymous, user. Admin role is used only in operational tools.
+* Session tokens must be httpOnly, secure, and sameSite=strict.
+
+## Logging and monitoring
+
+* Do not log PII. Log only de-identified values such as amounts and rates.
+* Log only error codes and stacks. User-facing messages must use generalized wording.
+
+## Secrets management
+
+* Keep API keys only in server environment variables. Do not inject into the client.
+* Key rotation interval: 30 days. Revoke immediately if compromise is suspected.
+
+## Vulnerability disclosure
+
+* Report security issues to [jj49408293@gmail.com](mailto:jj49408293@gmail.com). First response target within 72 hours.
+
+## Compliance disclaimer
+
+* This tool provides information only. It is not legal or financial advice. Users are responsible for how they use the results.&#x20;
