@@ -6,9 +6,9 @@ export default function Header() {
         <nav className="text-sm text-muted-foreground flex gap-4">
           <a href="/upload" className="hover:text-foreground">Upload</a>
           <a href="/compare" className="hover:text-foreground">Compare</a>
+          <a href="/preview" className="hover:text-foreground">Preview</a>
         </nav>
       </div>
     </header>
   )
 }
-
