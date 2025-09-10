@@ -1,6 +1,6 @@
 Still in progressing.....................
 
-# Cost-of-Living Copilot AU
+# Cost-of-Living Saver
 
 A privacy-first web app that helps people in Australia cut recurring household costs. Upload a bill or a plan, get a clean side-by-side comparison, see projected yearly savings, and generate ready-to-send negotiation emails.
 
