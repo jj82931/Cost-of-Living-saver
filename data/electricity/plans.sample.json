@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ex-basic",
+    "name": "Example Basic Saver",
+    "supplyChargePerDay": 1.05,
+    "usageRates": { "peak": 0.29 },
+    "fitPerKWh": 0.05
+  },
+  {
+    "id": "ex-flex",
+    "name": "Example Flex Peak/Off-peak",
+    "supplyChargePerDay": 1.20,
+    "usageRates": { "peak": 0.32, "offpeak": 0.20 },
+    "fitPerKWh": 0.06
+  },
+  {
+    "id": "value-max",
+    "name": "Value Max",
+    "supplyChargePerDay": 0.95,
+    "usageRates": { "peak": 0.31 }
+  }
+]
+

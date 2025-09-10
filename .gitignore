@@ -3,3 +3,25 @@ tasks/
 
 .env
 .env.*
+
+# dependencies
+node_modules/
+
+# next, build outputs
+.next/
+dist/
+build/
+out/
+
+# env
+.env
+.env.*
+!.env.example
+
+# editor, os
+.vscode/
+.DS_Store
+Thumbs.db
+
+# misc
+.vercel/

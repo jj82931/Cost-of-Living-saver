@@ -92,14 +92,12 @@ No aggressive web crawling. Terms of service and legal constraints are respected
 ## Repository structure
 
 ```
-docs/                  Project overview, guardrails, API contracts
 src/app/               Next.js app routes
 src/components/        UI components (cards, tables, modals)
 src/lib/               parsers, sim, data, llm, compose, match, estimator
 src/types/             Shared TypeScript types
 src/tests/             Unit and snapshot tests
 data/                  Public seed datasets for local development
-tasks/                 Daily task briefs used with the editor AI
 styles/print.css       Print styles for PDF export
 ```
 
